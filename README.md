@@ -6,7 +6,6 @@
 -->
 
 
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -57,6 +56,7 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#project-folder-structure">Project Folder Structure</a></li>
       </ul>
     </li>
     <li>
@@ -77,6 +77,7 @@
 
 
 
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -92,6 +93,18 @@ Here's why:
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
+
+### Project Folder Structure
+
+| Tables        | Purpose|
+| ------------- |:-------------:|
+| .pipeline     | scripts de integração com o pipeline, ci/cd
+| apps          | componentes do projeto (api, front, banco, etc)
+| docs          | documentação geral relativa ao projeto
+| resources     | recursos gerais compartilhados entre todos os apps
+| tests         | suites de teste que versam sobre a integração dos componentes entre si (testes end-to-end)
+| tools         | ferramentas de manejo do projeto (geradores de código inter-projeto, linters, changelog generators)
+
 
 ### Built With
 

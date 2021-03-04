@@ -1,0 +1,4 @@
+api:
+
+    build: ./apps/api/
+    context: ./apps/api
