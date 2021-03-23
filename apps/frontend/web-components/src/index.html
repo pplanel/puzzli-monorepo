@@ -2,132 +2,32 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="module" src="/build/puzzl-components.esm.js"></script>
+  <script nomodule src="/build/puzzl-components.js"></script>
+  <!-- <link rel="stylesheet" href="/themes/default.theme.css"> -->
+  <link rel="stylesheet" href="/themes/unhideschool.theme.css">
+  <!-- <link rel="stylesheet" href="/themes/pzl-tabs.theme.scss"> -->
 
-    <script type="module" src="/build/prodigio-components.esm.js"></script>
-    <script nomodule src="/build/prodigio-components.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-    <script>
-        window.que;
-    </script>
-    <link rel="stylesheet" href="./index.css?v1" />
+    @font-face {
+      font-family: "Montserrat";
+      src: url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap") format("opentype");
+    }
 
-    <style>
-        html,
-        body,
-        app-button {
-            margin: 0;
-            padding: 0;
-        }
-
-        /* PROMILITARES COLORS */
-
-        :root {
-            --app-color-base-100: #fafafc;
-            --app-color-base-200: #f0f1f7;
-            --app-color-base-300: #ced0dd;
-            --app-color-base-400: #9c9fb0;
-            --app-color-base-500: #7c8195;
-            --app-color-base-600: #666b7b;
-            --app-color-base-700: #505462;
-            --app-color-base-800: #3a3e47;
-            --app-color-base-900: #25272d;
-            --app-color-black: #000000;
-            --app-color-primary-100: #fdf4f5;
-            --app-color-primary-200: #f5bfc5;
-            --app-color-primary-300: #ed8a96;
-            --app-color-primary-400: #e65469;
-            --app-color-primary-500: #df1d3d;
-            --app-color-primary-600: #b51433;
-            --app-color-primary-700: #8a0d28;
-            --app-color-primary-800: #5e071c;
-            --app-color-primary-900: #30030f;
-            --app-color-secondary-100: #f7f4f7;
-            --app-color-secondary-200: #d0bed0;
-            --app-color-secondary-300: #a889aa;
-            --app-color-secondary-400: #805383;
-            --app-color-secondary-500: #571d5d;
-            --app-color-secondary-600: #45164b;
-            --app-color-secondary-700: #331039;
-            --app-color-secondary-800: #220a27;
-            --app-color-secondary-900: #110514;
-            --app-color-danger-100: #fff6f5;
-            --app-color-danger-200: #fcd1d1;
-            --app-color-danger-300: #f7a4a5;
-            --app-color-danger-400: #f17a7b;
-            --app-color-danger-500: #e85153;
-            --app-color-danger-600: #de2a2c;
-            --app-color-danger-700: #b41f21;
-            --app-color-danger-800: #891517;
-            --app-color-danger-900: #5d0d0e;
-            --app-color-info-100: #edf5ff;
-            --app-color-info-200: #c6e0fe;
-            --app-color-info-300: #9dcafe;
-            --app-color-info-400: #74b4fe;
-            --app-color-info-500: #4b9eff;
-            --app-color-info-600: #3a80cf;
-            --app-color-info-700: #2b629f;
-            --app-color-info-800: #1d4570;
-            --app-color-info-900: #102740;
-            --app-color-success-100: #d1f3e7;
-            --app-color-success-200: #a5e6cf;
-            --app-color-success-300: #7ad7b6;
-            --app-color-success-400: #50c79d;
-            --app-color-success-500: #28b583;
-            --app-color-success-600: #1e9369;
-            --app-color-success-700: #157050;
-            --app-color-success-800: #0d4b35;
-            --app-color-success-900: #06261b;
-            --app-color-warning-100: #fffdf5;
-            --app-color-warning-200: #feefd2;
-            --app-color-warning-300: #fddea4;
-            --app-color-warning-400: #fdcb76;
-            --app-color-warning-500: #feb647;
-            --app-color-warning-600: #ff9f18;
-            --app-color-warning-700: #dc8511;
-            --app-color-warning-800: #b96b0b;
-            --app-color-warning-900: #965307;
-            --app-color-white: #ffffff;
-        }
-    </style>
+    * {
+      font-family: 'Montserrat';
+    }
+  </style>
 </head>
 
-<body bgcolor="#fafafc">
-    <app-button variant="outline-primary" onclick="javascript:alert('aaaaaa')" disabled="true">Outline</app-button>
+<body style="background:#191919">
 
-    <app-button variant="outline-secondary" variant="submit">Outline</app-button>
-
-    <app-button variant="outline-success">Outline</app-button>
-    <app-button variant="outline-danger">Outline</app-button>
-    <app-button variant="outline-warning">Outline</app-button>
-    <app-button variant="outline-info">Outline</app-button>
-    <app-button variant="outline-neutral">Outline</app-button>
-
-    <app-button variant="primary">Flat</app-button>
-    <app-button variant="secondary">Flat</app-button>
-    <app-button variant="success">Flat</app-button>
-    <app-button variant="danger">Flat</app-button>
-    <app-button variant="warning">Flat</app-button>
-    <app-button variant="info">Flat</app-button>
-    <app-button variant="neutral">Flat</app-button>
-
-    <app-button variant="primary" disabled="true">Flat</app-button>
-    <app-button variant="secondary" disabled="true">Flat</app-button>
-    <app-button variant="success" disabled="true">Flat</app-button>
-    <app-button variant="danger" disabled="true">Flat</app-button>
-    <app-button variant="warning" disabled="true">Flat</app-button>
-    <app-button variant="info" disabled="true">Flat</app-button>
-    <app-button variant="neutral" disabled="true">Flat</app-button>
-
-    <button>generic button</button>
 </body>
 
 </html>

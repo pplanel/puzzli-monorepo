@@ -1,53 +1,57 @@
-import { defineCustomElements } from "../dist/loader";
-defineCustomElements();
+// import { configure } from '@storybook/react';
+// import buildStencilStories from './stories/automatedStories';
 
-import "../dist/themes/app.theme.default.css";
+// const loader = require('../loader/index.cjs');
 
-import { defaultViewports } from "../src/global/types/Breakpoints";
 
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+// const COLLECTIONS = [{
+//     name: 'My Components',
+//     componentsCtx: require.context('../dist/collection', true, /\/components\/([^/]+)\/\1\.js$/),
+//     storiesCtx: require.context('../src', true, /\.stories\.tsx$/),
+// }, ];
+
+// function loadStories() {
+//     loader.defineCustomElements(window);
+//     COLLECTIONS.forEach(({ name, componentsCtx, storiesCtx }) => {
+//         buildStencilStories(name, componentsCtx, storiesCtx);
+//     });
+// }
+
+// configure(loadStories, module);
+
+/* global window */
+
+import {
+    configure,
+    addParameters,
+    setCustomElements,
+} from '@storybook/web-components';
+
+import customElements from '../custom-elements.json';
+
+setCustomElements(customElements);
+
+addParameters({
+    docs: {
+        inlineStories: false,
+        iframeHeight: '200px',
     },
-  },
-  // themes: {
-  //   default: "app-default",
-  //   list: [
-  //     { name: "app-default", class: "app-default", color: "#df1d3d" },
-  //   ],
-  // },
-  viewport: { viewports: defaultViewports },
-  options: {
-    storySort: {
-      order: [
-        "Getting Started",
-        "Theming",
-        ["Intro", "Defs", "Functions", "Mixins"],
-        "Design Tokens",
-        ["Intro", "Breakpoints"],
-        "Global",
-        "Components",
-        "Composites",
-        "Tests",
-      ],
-    },
-  },
-};
+});
+
+// configure(require.context('../stories', true, /\.stories\.(js|mdx)$/), module);
 
 // force full reload to not reregister web components
-// const req = require.context("../src", true, /\.src\.(tsx|js|mdx)$/);
-// configure(req, module);
+const req = require.context('../src', true, /\.src\.(tsx|js|mdx)$/);
 
-// if (module.hot) {
-//   module.hot.accept(req.id, () => {
-//     const currentLocationHref = window.location.href;
+configure(req, module);
 
-//     window.history.pushState(null, null, currentLocationHref);
-//     window.location.reload();
+if (module.hot) {
+    module.hot.accept(req.id, () => {
+        const currentLocationHref = window.location.href;
+        
+        window.history.pushState(null, null, currentLocationHref);
+        window.location.reload();
 
-//     setTimeout(() => window.location.reload());
-//   });
-// }
+        setTimeout(() => window.location.reload());
+    });
+}
