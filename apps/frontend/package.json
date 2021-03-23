@@ -1,0 +1,10 @@
+{
+  "name": "@puzzl/monorepo",
+  "version": "1.0.0",
+  "description": "Pacote raiz do monorepo para controlar os workspaces.",
+  "private": true,
+  "workspaces": [
+    "react",
+    "web-components"
+  ]
+}
