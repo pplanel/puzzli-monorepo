@@ -1,2 +1,0 @@
-// Slugify
-export * from './slugify';

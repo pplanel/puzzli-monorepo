@@ -5,70 +5,94 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ColorVariant } from "./global/types/ColorVariants";
+import { BasicSize } from "./global/types/Sizes";
+import { IconResolverType } from "./components/icon/icon.resolvers";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface AppButton {
+        "disabled": boolean;
+        "size": BasicSize;
+        "variant": ColorVariant;
     }
-    interface MyComposedComponent {
+    interface AppCard {
+    }
+    interface AppIcon {
+        "colors": boolean;
+        "src": string;
+        "type": IconResolverType;
+    }
+    interface AppInput {
+        "name": string;
+        "status": 'positive' | 'negative';
+        "type": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLAppButtonElement extends Components.AppButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLAppButtonElement: {
+        prototype: HTMLAppButtonElement;
+        new (): HTMLAppButtonElement;
     };
-    interface HTMLMyComposedComponentElement extends Components.MyComposedComponent, HTMLStencilElement {
+    interface HTMLAppCardElement extends Components.AppCard, HTMLStencilElement {
     }
-    var HTMLMyComposedComponentElement: {
-        prototype: HTMLMyComposedComponentElement;
-        new (): HTMLMyComposedComponentElement;
+    var HTMLAppCardElement: {
+        prototype: HTMLAppCardElement;
+        new (): HTMLAppCardElement;
+    };
+    interface HTMLAppIconElement extends Components.AppIcon, HTMLStencilElement {
+    }
+    var HTMLAppIconElement: {
+        prototype: HTMLAppIconElement;
+        new (): HTMLAppIconElement;
+    };
+    interface HTMLAppInputElement extends Components.AppInput, HTMLStencilElement {
+    }
+    var HTMLAppInputElement: {
+        prototype: HTMLAppInputElement;
+        new (): HTMLAppInputElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
-        "my-composed-component": HTMLMyComposedComponentElement;
+        "app-button": HTMLAppButtonElement;
+        "app-card": HTMLAppCardElement;
+        "app-icon": HTMLAppIconElement;
+        "app-input": HTMLAppInputElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface AppButton {
+        "disabled"?: boolean;
+        "onButtonClicked"?: (event: CustomEvent<MouseEvent>) => void;
+        "size"?: BasicSize;
+        "variant"?: ColorVariant;
     }
-    interface MyComposedComponent {
+    interface AppCard {
+    }
+    interface AppIcon {
+        "colors"?: boolean;
+        "src": string;
+        "type"?: IconResolverType;
+    }
+    interface AppInput {
+        "name"?: string;
+        "status"?: 'positive' | 'negative';
+        "type"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
-        "my-composed-component": MyComposedComponent;
+        "app-button": AppButton;
+        "app-card": AppCard;
+        "app-icon": AppIcon;
+        "app-input": AppInput;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
-            "my-composed-component": LocalJSX.MyComposedComponent & JSXBase.HTMLAttributes<HTMLMyComposedComponentElement>;
+            "app-button": LocalJSX.AppButton & JSXBase.HTMLAttributes<HTMLAppButtonElement>;
+            "app-card": LocalJSX.AppCard & JSXBase.HTMLAttributes<HTMLAppCardElement>;
+            "app-icon": LocalJSX.AppIcon & JSXBase.HTMLAttributes<HTMLAppIconElement>;
+            "app-input": LocalJSX.AppInput & JSXBase.HTMLAttributes<HTMLAppInputElement>;
         }
     }
 }

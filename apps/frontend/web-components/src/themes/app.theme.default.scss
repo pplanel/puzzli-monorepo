@@ -1,16 +1,13 @@
-@import 'globals';
-@import 'theme.default';
-
-$default-font-face: 'Source Sans Pro';
+@import 'theme.default.scss';
 
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url('fonts/SourceSansPro-Regular.ttf');
+  src: url('fonts/SourceSansapp-Regular.ttf');
 }
 
 @font-face {
   font-family: 'Source Sans Pro';
-  src: url('fonts/SourceSansPro-Black.ttf');
+  src: url('fonts/SourceSansapp-Black.ttf');
   font-weight: bold;
 }
 
@@ -25,6 +22,4 @@ $default-font-face: 'Source Sans Pro';
   --default-font-face: #{$default-font-face};
 }
 
-body {
-  font-family: var(--default-font-face);
-}
+$default-font-face: 'Source Sans Pro';

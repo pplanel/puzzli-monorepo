@@ -1,6 +1,11 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "es2017"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2017"
+    ],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "es2017",
@@ -16,6 +21,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
-  "files": ["src/styles/styled.d.ts"]
+  "include": [
+    "src"
+  ],
+  "files": [
+    "src/styles/styled.d.ts"
+  ]
 }
