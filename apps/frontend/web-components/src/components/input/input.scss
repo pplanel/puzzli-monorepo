@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  width: 100%;
+
+  input.app-input {
+    height: 48px;
+    width: 100%;
+
+    font-family: Source Sans Pro;
+    font-size: 1.125rem;
+    line-height: 1.27;
+
+    padding: 0.66em 1.11em;
+
+    border-radius: 4px;
+    border: 1px solid #9c9fb0;
+    outline: 0;
+  }
+
+  input.app-input:hover {
+    border: 1px solid #505462;
+  }
+
+  input.app-input:focus {
+    border: 1px solid #505462;
+    box-shadow: 0px 0px 0px 2px #94d2ff;
+  }
+
+  input.app-input:disabled {
+    box-shadow: 0px 0px 0px 2px #94d2ff;
+    border: 1px solid #ced0dd;
+    background: #f0f1f7;
+  }
+
+  input.app-input.positive {
+    background: #deedcf;
+    border: 1px solid #56b870;
+    color: #56b870;
+  }
+
+  input.app-input.negative {
+    background: #ffd396;
+    color: #d36617;
+  }
+}
+
+::placeholder {
+  color: app-color('primary', 500);
+}

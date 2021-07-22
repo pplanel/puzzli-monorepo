@@ -1,2 +1,0 @@
-// Auth
-export * from './auth';

@@ -1,0 +1,7 @@
+// see:
+@mixin generate-custom-properties($name, $weights) {
+  @each $key, $value in $weights {
+    --app-color-#{""+$name}-#{""+$key}-rgba: #{list-color-rgb($value)};
+    --app-color-#{""+$name}-#{""+$key}: #{$value};
+  }
+}

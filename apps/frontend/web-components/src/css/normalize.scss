@@ -1,0 +1,16 @@
+@import "./mixins/borderRadius.scss";
+@import "./mixins/spacings.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-smoothing: antialiased;
+}
+
+button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}

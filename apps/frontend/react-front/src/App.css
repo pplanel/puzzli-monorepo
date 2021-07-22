@@ -1,0 +1,13 @@
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+app-card,
+app-input {
+  color: #241556;
+}
+
+app-card > p {
+  margin-bottom: 20px;
+}

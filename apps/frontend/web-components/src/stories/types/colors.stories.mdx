@@ -1,0 +1,76 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Global/Types/Colors" />
+
+# Colors
+
+```ts
+export const FlatVariants = {
+    PRIMARY: "primary",
+    SECONDARY: "secondary",
+    NEUTRAL: "neutral",
+    SUCCESS: "success",
+    INFO: "info",
+    DANGER: "danger",
+    WARNING: "warning",
+} as const;
+
+export const OutlineVariants = {
+    OUTLINE_BASE: "outline-gray",
+    OUTLINE_PRIMARY: "outline-primary",
+    OUTLINE_SUCCESS: "outline-success",
+    OUTLINE_DANGER: "outline-danger",
+    OUTLINE_WARNING: "outline-warning",
+    OUTLINE_INFO: "outline-info",
+} as const;
+
+export const ColorVariants = { ...FlatVariants, ...OutlineVariants } as const;
+
+export type FlatVariant = typeof FlatVariants[keyof typeof FlatVariants];
+
+export type OutlineVariant = typeof OutlineVariants[keyof typeof OutlineVariants];
+
+export type ColorVariant = FlatVariant | OutlineVariant;
+```
+
+## Usage
+
+```ts
+const colorFlatVariant: FlatVariant = FlatVariants.PRIMARY;
+const colorOutlineVariant: OutlineVariant = OutlineVariants.OUTLINE_PRIMARY;
+const colorVariant: ColorVariant = ColorVariants.PRIMARY;
+```
+
+### Output:
+
+```ts
+const colorFlatVariant:
+    | "primary"
+    | "secondary"
+    | "neutral"
+    | "success"
+    | "info"
+    | "danger"
+    | "warning" = "primary";
+const colorFlatVariant:
+    | "outline-gray"
+    | "outline-primary"
+    | "outline-success"
+    | "outline-danger"
+    | "outline-warning"
+    | "outline-info" = "outline-primary";
+const colorVariant:
+    | "primary"
+    | "secondary"
+    | "neutral"
+    | "success"
+    | "info"
+    | "danger"
+    | "warning"
+    | "outline-gray"
+    | "outline-primary"
+    | "outline-success"
+    | "outline-danger"
+    | "outline-warning"
+    | "outline-info" = "primary";
+```

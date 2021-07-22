@@ -1,0 +1,37 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Theming/⚙️ Functions/Color/list-color-rgb" />
+
+# list-color-rgb
+
+Converts a color to a comma separated rgb.
+
+```css
+@function list-color-rgb($color) {
+    @return #{red($color)}, #{green($color)}, #{blue($color)};
+}
+```
+
+## Parameters
+
+| Parameter | Description                                                  | Type  | Default |
+| --------- | ------------------------------------------------------------ | ----- | ------- |
+| `color`   | The color to be broken up into red, green and blue channels. | `hex` | `-`     |
+
+## Usage
+
+```scss
+.class {
+    --black-rgb: #{list-color-rgb(#000)};
+    color: rgba(var(--black-rgb), 0.5);
+}
+```
+
+### Output:
+
+```css
+.class {
+    --black-rgb: 0, 0, 0;
+    color: rgba(var(--black-rgb), 0.5);
+}
+```

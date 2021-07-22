@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Theming/Intro" />
+
+# Intro
+
+You may apply diferent theme's based on a class added to the document body or use the default theme.
+
+## Import Theme Styles
+
+```ts
+// Add this import to your JS application root
+import 'prodigio-components/dist/themes/<theme_name>.css';
+```
+
+```html
+<!-- or add the style tag in your html page -->
+<link id="theme" href="prodigio-components/dist/themes/<theme_name>.css" rel="stylesheet" />
+```
+
+```html
+<!-- and add the related class to the page body -->
+<body class="<theme_name>"></body>
+```
+
+💡 Remember to replace `<theme_name>` in the paths above.
+
+💡 If you dont load a css theme file and/or add a class to the page body, the components will use the default theme.
+
+### Themes
+
+<ul>
+  <li>
+    <span>🎲</span>{' '}
+    <a href={'?path=/story/theming-📜-defs-app-enem--page'}>
+      <strong>app-enem</strong>
+    </a>
+  </li>
+
+  <li>
+    <span>🎲</span>{' '}
+    <a href={'?path=/story/theming-📜-defs-app-militar--page'}>
+      <strong>app-militar</strong>
+    </a>
+  </li>
+</ul>

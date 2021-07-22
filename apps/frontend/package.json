@@ -4,7 +4,26 @@
   "description": "Pacote raiz do monorepo para controlar os workspaces.",
   "private": true,
   "workspaces": [
-    "react",
+    "react-front",
     "web-components"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{html,css,scss,ejs}": [
+      "prettier --write"
+    ]
+  }
 }

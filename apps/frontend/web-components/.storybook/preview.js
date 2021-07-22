@@ -1,57 +1,55 @@
-// import { configure } from '@storybook/react';
-// import buildStencilStories from './stories/automatedStories';
+import { defineCustomElements } from "../dist/loader";
+defineCustomElements();
 
-// const loader = require('../loader/index.cjs');
+import "../dist/themes/app-enem.css";
+import "../dist/themes/app-militares.css";
 
+import { defaultViewports } from "../src/global/types/Breakpoints";
 
-// const COLLECTIONS = [{
-//     name: 'My Components',
-//     componentsCtx: require.context('../dist/collection', true, /\/components\/([^/]+)\/\1\.js$/),
-//     storiesCtx: require.context('../src', true, /\.stories\.tsx$/),
-// }, ];
-
-// function loadStories() {
-//     loader.defineCustomElements(window);
-//     COLLECTIONS.forEach(({ name, componentsCtx, storiesCtx }) => {
-//         buildStencilStories(name, componentsCtx, storiesCtx);
-//     });
-// }
-
-// configure(loadStories, module);
-
-/* global window */
-
-import {
-    configure,
-    addParameters,
-    setCustomElements,
-} from '@storybook/web-components';
-
-import customElements from '../custom-elements.json';
-
-setCustomElements(customElements);
-
-addParameters({
-    docs: {
-        inlineStories: false,
-        iframeHeight: '200px',
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
     },
-});
-
-// configure(require.context('../stories', true, /\.stories\.(js|mdx)$/), module);
+  },
+  themes: {
+    default: "app-enem",
+    list: [
+      { name: "app-enem", class: "app-enem", color: "#df1d3d" },
+      { name: "app-militares", class: "app-militares", color: "#0f6e42" },
+    ],
+  },
+  viewport: { viewports: defaultViewports },
+  options: {
+    storySort: {
+      order: [
+        "Getting Started",
+        "Theming",
+        ["Intro", "Defs", "Functions", "Mixins"],
+        "Design Tokens",
+        ["Intro", "Breakpoints"],
+        "Global",
+        "Components",
+        "Composites",
+        "Tests",
+      ],
+    },
+  },
+};
 
 // force full reload to not reregister web components
-const req = require.context('../src', true, /\.src\.(tsx|js|mdx)$/);
+// const req = require.context("../src", true, /\.src\.(tsx|js|mdx)$/);
+// configure(req, module);
 
-configure(req, module);
+// if (module.hot) {
+//   module.hot.accept(req.id, () => {
+//     const currentLocationHref = window.location.href;
 
-if (module.hot) {
-    module.hot.accept(req.id, () => {
-        const currentLocationHref = window.location.href;
-        
-        window.history.pushState(null, null, currentLocationHref);
-        window.location.reload();
+//     window.history.pushState(null, null, currentLocationHref);
+//     window.location.reload();
 
-        setTimeout(() => window.location.reload());
-    });
-}
+//     setTimeout(() => window.location.reload());
+//   });
+// }

@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Getting Started/Local Assets' />
+
+# Local Assets
+
+> To use static image, video and other files, you can create an assets folder in the project
+and reference it in the component's decorator.
+
+<br/>
+
+## Create a folder to store the assets  
+<br/>
+
+#### ...in the component directory
+
+- my-component [dir]
+    - my-assets [dir]
+      - my-asset.jpg
+      - my-asset2.mp4
+  - my-component.scss
+  - my-component.tsx
+
+#### ...or in a global folder
+- project-folder [dir]
+  - components [dir]
+    - my-component [dir]
+  - my-assets [dir]
+    - my-asset.jpg
+    - my-asset2.mp4
+
+
+## How to use
+
+```tsx
+import { Component, Host, h, getAssetPath } from '@stencil/core';
+
+@Component({
+  tag: 'my-component',
+  assetsDirs: ['my-assets']
+  // ...
+})
+export class MyComponent {
+  // ...
+  render() {
+    return (
+      <img src={getAssetPath('my-assets/my-asset.jpg')}>
+    );
+  }
+  // ...
+}
+```
