@@ -1,6 +1,8 @@
-const { alias, aliasJest, configPaths } = require("react-app-rewire-alias");
+const { override } = require("customize-cra");
+const { aliasDangerous } = require("react-app-rewire-alias/lib/aliasDangerous");
 
-const aliasMap = configPaths("./tsconfig.paths.json");
+const aliasMap = {
+  "web-components-react": "../web-components-react",
+};
 
-module.exports = alias(aliasMap);
-module.exports.jest = aliasJest(aliasMap);
+module.exports = override(aliasDangerous(aliasMap));

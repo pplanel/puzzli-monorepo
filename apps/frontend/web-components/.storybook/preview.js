@@ -1,8 +1,7 @@
 import { defineCustomElements } from "../dist/loader";
 defineCustomElements();
 
-import "../dist/themes/app-enem.css";
-import "../dist/themes/app-militares.css";
+import "../dist/themes/app.theme.default.css";
 
 import { defaultViewports } from "../src/global/types/Breakpoints";
 
@@ -14,13 +13,12 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  themes: {
-    default: "app-enem",
-    list: [
-      { name: "app-enem", class: "app-enem", color: "#df1d3d" },
-      { name: "app-militares", class: "app-militares", color: "#0f6e42" },
-    ],
-  },
+  // themes: {
+  //   default: "app-default",
+  //   list: [
+  //     { name: "app-default", class: "app-default", color: "#df1d3d" },
+  //   ],
+  // },
   viewport: { viewports: defaultViewports },
   options: {
     storySort: {
