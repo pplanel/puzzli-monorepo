@@ -3,7 +3,7 @@ import { sass } from "@stencil/sass";
 import { reactOutputTarget } from "@stencil/react-output-target";
 
 export const config: Config = {
-  namespace: "app-components",
+  namespace: "web-components",
   outputTargets: [
     {
       type: "dist",
@@ -24,7 +24,7 @@ export const config: Config = {
     },
     reactOutputTarget({
       componentCorePackage: "web-components",
-      proxiesFile: `../react-front/web-components/src/components.ts`,
+      proxiesFile: `../web-components-react/src/components.ts`,
       loaderDir: "dist/loader",
       includeDefineCustomElements: true,
       includePolyfills: true,

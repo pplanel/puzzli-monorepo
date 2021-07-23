@@ -11,7 +11,7 @@ import {
   AppInput,
   AppCard,
   AppButton,
-} from "@web-components/components";
+} from "web-components-react/src";
 
 import logoImg from "./assets/images/pzl-logo.svg";
 
@@ -41,7 +41,7 @@ function App() {
             tenetur asperiores odio.
           </p>
 
-          <AppButton slot="footer">Teste</AppButton>
+          <AppButton slot="footer">Click</AppButton>
         </AppCard>
       </div>
 
