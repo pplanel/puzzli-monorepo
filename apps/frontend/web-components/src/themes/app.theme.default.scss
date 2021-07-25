@@ -1,0 +1,30 @@
+@import 'globals';
+@import 'theme.default';
+
+$default-font-face: 'Source Sans Pro';
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('fonts/SourceSansPro-Black.ttf');
+  font-weight: bold;
+}
+
+// Theme color variables
+:root {
+  @each $key, $value in $colors {
+    @include generate-custom-properties($key, $value);
+  }
+
+  --app-color-white: #{$app-color-white};
+  --app-color-black: #{$app-color-black};
+  --default-font-face: #{$default-font-face};
+}
+
+body {
+  font-family: var(--default-font-face);
+}

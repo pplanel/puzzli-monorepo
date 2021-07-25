@@ -1,0 +1,148 @@
+@mixin color-variants {
+  &.primary {
+    background: app-color('primary', 500);
+    color: var(--app-color-white, #fff);
+
+    &:hover {
+      background: app-color('primary', 700);
+    }
+  }
+
+  &.outline-primary {
+    background: transparent;
+    color: app-color(primary, 500);
+    border: 1px solid app-color(primary, 500);
+
+    &:hover {
+      color: app-color(primary, 600);
+      background: app-color(primary, 100);
+      border: 1px solid app-color(primary, 600);
+    }
+  }
+
+  &.secondary {
+    background: app-color(secondary, 600);
+    color: var(--app-color-white, #fff);
+
+    &:hover {
+      background: app-color(secondary, 400);
+    }
+  }
+
+  &.outline-secondary {
+    background: transparent;
+    color: app-color(secondary, 500);
+    border: 1px solid app-color(secondary, 500);
+
+    &:hover {
+      color: app-color(secondary, 600);
+      background: app-color(secondary, 100);
+      border: 1px solid app-color(secondary, 600);
+    }
+  }
+
+  &.gray {
+    background: app-color(gray, 600);
+    color: var(--app-color-white, #fff);
+
+    &:hover {
+      background: app-color(gray, 400);
+    }
+  }
+
+  &.outline-gray {
+    background: transparent;
+    color: app-color(gray, 600);
+    border: 1px solid app-color(gray, 600);
+
+    &:hover {
+      background: app-color(gray, 100);
+      color: app-color(gray, 500);
+      border: 1px solid app-color(gray, 500);
+    }
+  }
+
+  &.success {
+    background: app-color(success, 600);
+    color: var(--app-color-white, #fff);
+
+    &:hover {
+      background: app-color(success, 700);
+    }
+  }
+
+  &.outline-success {
+    background: transparent;
+    color: app-color(success, 600);
+    border: 1px solid app-color(success, 600);
+
+    &:hover {
+      background: app-color(success, 100);
+      color: app-color(success, 700);
+      border: 1px solid app-color(success, 700);
+    }
+  }
+
+  &.info {
+    background: app-color(info, 600);
+    color: var(--app-color-white, #fff);
+
+    &:hover {
+      background: app-color(info, 700);
+    }
+  }
+
+  &.outline-info {
+    background: transparent;
+    color: app-color(info, 600);
+    border: 1px solid app-color(info, 600);
+
+    &:hover {
+      background: app-color(info, 100);
+      color: app-color(info, 700);
+      border: 1px solid app-color(info, 700);
+    }
+  }
+
+  &.warning {
+    background: app-color(warning, 500);
+    color: app-color(warning, 900);
+
+    &:hover {
+      background: app-color(warning, 600);
+    }
+  }
+
+  &.outline-warning {
+    background: transparent;
+    color: app-color(warning, 800);
+    border: 1px solid app-color(warning, 800);
+
+    &:hover {
+      background: app-color(warning, 100);
+      color: app-color(warning, 900);
+      border: 1px solid app-color(warning, 900);
+    }
+  }
+
+  &.danger {
+    background: app-color(danger, 500);
+    color: var(--app-color-white, #fff);
+
+    &:hover {
+      background: app-color(danger, 600);
+    }
+  }
+
+  &.outline-danger {
+    background: transparent;
+    color: app-color(danger, 500);
+    border: 1px solid app-color(danger, 500);
+
+    &:hover {
+      background: app-color(danger, 100);
+      color: app-color(danger, 600);
+      border: 1px solid app-color(danger, 600);
+    }
+  }
+}

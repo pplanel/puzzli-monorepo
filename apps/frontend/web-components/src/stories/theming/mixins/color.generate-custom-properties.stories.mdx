@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Theming/🧪 Mixins/Color/generate-color" />
+
+# generate-color
+
+Generates the custom properties for the theme based on the $colors map.
+
+```scss
+@mixin generate-custom-properties($name, $weights) {
+  @each $key, $value in $weights {
+    --app-color-#{""+$name}-#{""+$key}-rgba: #{list-color-rgb($value)};
+    --app-color-#{""+$name}-#{""+$key}: #{$value};
+  }
+}
+```
+
+## Parameters
+
+| Parameter | Description                          | Type                                                                                                                            | Default |
+| --------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `name`    | The color present in the colors map. | `"primary"` \| `"secondary"` \| `"tertiary"` \| `"success"` \| `"warning"` \| `"danger"` \| `"light"` \| `"medium"` \| `"dark"` | `-`     |
+| `weights` | The color weights in the colors map. | `number`                                                                                                                        | `-`     |
+
+## Requires
+
+<ul>
+  <li>
+    <span>🎲</span>{' '}
+    <a href={'?path=/story/theme-🎲-variables-colors--page'}>
+      <strong>colors</strong>
+    </a>
+  </li>
+</ul>
+
+## Usage
+
+```scss
+$colors: (
+  primary: (
+    100: #fdf4f5,
+    200: #f5bfc5,
+    300: #ed8a96,
+    400: #e65469,
+    500: #df1d3d,
+    600: #b51433,
+    700: #8a0d28,
+    800: #5e071c,
+    900: #30030f
+  )
+);
+
+:root {
+  @each $key, $value in $colors {
+    @include generate-custom-properties($key, $value);
+  }
+}
+```
+
+### Output:
+
+```css
+:root {
+  --app-color-primary-100-rgba: 253, 244, 245;
+  --app-color-primary-100: #fdf4f5;
+  --app-color-primary-200-rgba: 245, 191, 197;
+  --app-color-primary-200: #f5bfc5;
+  --app-color-primary-300-rgba: 237, 138, 150;
+  --app-color-primary-300: #ed8a96;
+  --app-color-primary-400-rgba: 230, 84, 105;
+  --app-color-primary-400: #e65469;
+  --app-color-primary-500-rgba: 223, 29, 61;
+  --app-color-primary-500: #df1d3d;
+  --app-color-primary-600-rgba: 181, 20, 51;
+  --app-color-primary-600: #b51433;
+  --app-color-primary-700-rgba: 138, 13, 40;
+  --app-color-primary-700: #8a0d28;
+  --app-color-primary-800-rgba: 94, 7, 28;
+  --app-color-primary-800: #5e071c;
+  --app-color-primary-900-rgba: 48, 3, 15;
+  --app-color-primary-900: #30030f;
+}
+```

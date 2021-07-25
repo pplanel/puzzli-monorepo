@@ -1,0 +1,88 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Theming/⚙️ Functions/Color/app-color" />
+
+# app-color
+
+Gets the specific color CSS custom property based on one of the color variations present in the colors map.
+
+```css
+@function app-color($name, $weight: 500, $alpha: null, $rgb: false) {
+  @if not map-has-key($colors, $name) {
+    @error 'ERROR: There is no `#{$name}` color in the colors map. Values are: #{map-keys($colors)}`';
+  }
+
+  @each $key, $value in $colors {
+    @if not map-has-key($colors, $key, $weight) {
+      @error 'ERROR: There is no `#{$weight}` weight in the colors map. Values are: `#{map-keys($value)}`';
+    }
+  }
+
+  $value: map-get(map-get($colors, $name), $weight);
+  $variable: --app-color-#{$name}-#{$weight};
+
+  @if ($alpha) {
+    $value: list-color-rgb($value);
+    @return rgba(var(#{$variable}-rgb, $value), $alpha);
+  }
+
+  @if ($rgb) {
+    $value: list-color-rgb($value);
+    $variable: #{$variable}-rgb;
+  }
+
+  @return var(#{$variable}, $value);
+}
+```
+
+## Parameters
+
+| Parameter | Description                                 | Type      | Default     |
+| --------- | ------------------------------------------- | --------- | ----------- | ------------- | ---------- | -------- | ----------- | ----------- | --- |
+| `name`    | The color present in the colors map.        | `"gray"`  | `"primary"` | `"secondary"` | `"danger"` | `"info"` | `"success"` | `"warning"` | `-` |
+| `weight`  | The color weight present in the colors map. | `Number`  | `500`       |
+| `alpha`   | The color alpha.                            | `Number`  | `null`      |
+| `rgb`     | The color rgb.                              | `Boolean` | `false`     |
+
+## Requires
+
+<ul>
+  <li>
+    <span>🎲</span>{' '}
+    <a href={'?path=/story/theme-🎲-variables-colors--page'}>
+      <strong>colors</strong>
+    </a>
+  </li>
+</ul>
+
+## Usage
+
+```scss
+.class {
+  color: app-color('primary', 500);
+}
+
+.class {
+  color: app-color('primary', 500, 0.5);
+}
+
+.class {
+  color: rgb(app-color('primary', 500, null, true));
+}
+```
+
+### Output:
+
+```css
+.class {
+  color: var(--app-color-primary, #df1d3d);
+}
+
+.class {
+  color: rgba(var(--app-color-primary-rgb, 223, 29, 61), 0.5);
+}
+
+.class {
+  color: rgb(var(--app-color-primary-rgb, 223, 29, 61));
+}
+```

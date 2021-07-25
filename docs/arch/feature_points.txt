@@ -1,0 +1,42 @@
+dev workflow
+---
+
+trunk-based dev / monorepo
+pro
+
+unificacao de progresso de feature
+facilidade de build do produto ja que esta tudo disponivel
+feature toggle vs ambientes
+short lived feature branches
+maior dependencia de code review e testes automatizados
+
+cons
+concorrencia entre blocos de codigo em grandes equipes
+
+ci/cd
+---
+version fixation de builds (front a.b.z roda com back a.a.b)
+anonimizacao de banco para dev
+controle de environments
+automacao de testes
+automacao de deploy
+arquitetura fracamante acoplada
+monitoramento e obversavabildiade
+gerencia de mudanca em banco de dados
+
+backend
+---
+modular
+desacoplado
+business logic em libs
+framework independente
+stateless
+APM
+
+infra
+---
+IaaS - infraestrutura como codigo
+CaaS - configuracao como codigo
+APM
+IAM
+

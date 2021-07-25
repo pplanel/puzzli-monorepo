@@ -1,0 +1,73 @@
+{
+  "name": "web-components",
+  "version": "0.0.1",
+  "description": "Prodígio Components Lib",
+  "main": "dist/stencil/index.cjs.js",
+  "module": "dist/custom-elements/index.js",
+  "es2015": "dist/stencil/esm/index.mjs",
+  "es2017": "dist/stencil/esm/index.mjs",
+  "types": "dist/stencil/types/components.d.ts",
+  "collection": "dist/stencil/collection/collection-manifest.json",
+  "collection:main": "dist/stencil/collection/index.js",
+  "unpkg": "dist/stencil/web-components/web-components.esm.js",
+  "files": [
+    "dist/stencil/",
+    "dist/loader/"
+  ],
+  "scripts": {
+    "start": "yarn run build.css && run-p start.stencil start.storybook",
+    "start.stencil": "npx stencil build --docs --watch",
+    "start.storybook": "npx start-storybook -s ./dist/stencil/web-components/assets:assets -p 6006",
+    "build": "yarn run build.css && yarn run build.stencil && yarn run build.storybook",
+    "build.storybook": "npx build-storybook -o ./dist/storybook -s ./dist/stencil/web-components/assets:assets",
+    "build.stencil": "stencil build --docs",
+    "build.css": "npx sass src/themes/app.theme.default.scss:./dist/themes/app.theme.default.css",
+    "test": "npx stencil test --spec --e2e",
+    "test.watch": "npx stencil test --spec --e2e --watchAll",
+    "generate": "npx stencil generate",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.0.1",
+    "@stencil/sass": "^1.4.1",
+    "lodash": "^4.17.21"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@stencil/react-output-target": "^0.0.9",
+    "@storybook/addon-a11y": "^6.3.4",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/web-components": "^6.3.4",
+    "@types/jest": "^26.0.22",
+    "@types/lodash": "^4.14.168",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.30.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.1",
+    "lit-html": "^1.4.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "storybook-addon-designs": "^6.0.1",
+    "storybook-addon-themes": "^6.1.0",
+    "typescript": "^4.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{html,css,scss,ejs}": [
+      "prettier --write"
+    ]
+  }
+}

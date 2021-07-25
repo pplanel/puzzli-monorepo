@@ -1,0 +1,100 @@
+// Default Prodigio Colors
+
+$colors: (
+  gray: (
+    100: #fafafc,
+    200: #f0f1f7,
+    300: #ced0dd,
+    400: #9c9fb0,
+    500: #7c8195,
+    600: #666b7b,
+    700: #505462,
+    800: #3a3e47,
+    900: #25272d
+  ),
+  primary: (
+    100: #fdf4f5,
+    200: #f5bfc5,
+    300: #ed8a96,
+    400: #e65469,
+    500: #241556,
+    600: #b51433,
+    700: #8a0d28,
+    800: #5e071c,
+    900: #30030f
+  ),
+  secondary: (
+    100: #f7f4f7,
+    200: #d0bed0,
+    300: #a889aa,
+    400: #805383,
+    500: #571d5d,
+    600: #45164b,
+    700: #331039,
+    800: #220a27,
+    900: #110514
+  ),
+  danger: (
+    100: #fff6f5,
+    200: #fcd1d1,
+    300: #f7a4a5,
+    400: #f17a7b,
+    500: #e85153,
+    600: #de2a2c,
+    700: #b41f21,
+    800: #891517,
+    900: #5d0d0e
+  ),
+  info: (
+    100: #edf5ff,
+    200: #c6e0fe,
+    300: #9dcafe,
+    400: #74b4fe,
+    500: #4b9eff,
+    600: #3a80cf,
+    700: #2b629f,
+    800: #1d4570,
+    900: #102740
+  ),
+  success: (
+    100: #d1f3e7,
+    200: #a5e6cf,
+    300: #7ad7b6,
+    400: #50c79d,
+    500: #28b583,
+    600: #1e9369,
+    700: #157050,
+    800: #0d4b35,
+    900: #06261b
+  ),
+  warning: (
+    100: #fffdf5,
+    200: #feefd2,
+    300: #fddea4,
+    400: #fdcb76,
+    500: #feb647,
+    600: #ff9f18,
+    700: #dc8511,
+    800: #b96b0b,
+    900: #965307
+  )
+) !default;
+
+$app-color-white: #fff !default;
+$app-color-white-rgb: 255, 255, 255 !default;
+
+$app-color-black: #000 !default;
+$app-color-black-rgb: 0, 0, 0 !default;
+
+// Default Foreground and Background Colors
+
+$background-color-value: $app-color-white !default;
+$background-color-rgb-value: $app-color-white-rgb !default;
+
+$text-color-value: $app-color-black !default;
+$text-color-rgb-value: $app-color-black-rgb !default;
+
+$background-color: var(--ctb-background-color, $background-color-value) !default;
+$background-color-rgb: var(--ctb-background-color-rgb, $background-color-rgb-value) !default;
+$text-color: var(--ctb-text-color, $text-color-value) !default;
+$text-color-rgb: var(--ctb-text-color-rgb, $text-color-rgb-value) !default;
