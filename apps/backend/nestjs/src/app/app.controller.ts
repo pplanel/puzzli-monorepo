@@ -12,7 +12,6 @@ export class AppController {
 
   @Get('hc')
   getHealthCheck(): string {
-    // return this.appService.getHealthCheck();
-    return "This route is now implemented in Angular frontend";
+    return this.appService.getHealthCheck();
   }
 }
