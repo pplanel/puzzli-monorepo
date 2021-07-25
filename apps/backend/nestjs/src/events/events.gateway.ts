@@ -5,7 +5,7 @@ import { Server } from 'socket.io';
 export class EventsGateway {
 
   @WebSocketServer()
-  server: Server
+  server: Server;
 
   @SubscribeMessage('events')
   handleMessage(client: any, payload: any): string {
