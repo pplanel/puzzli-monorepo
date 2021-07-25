@@ -1,8 +1,0 @@
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@web-components/*": ["web-components/src/*"]
-    }
-  }
-}
